@@ -1,0 +1,188 @@
+### Monday Post:
+
+Last week Anthropic showed how to build full production apps with Claude Code on Google Cloud.
+
+One engineer played all 5 roles. PM, designer, backend, security and GTM. He shipped a live app in a single session.
+
+Here are the lessons worth stealing:
+→ Use plan mode before writing any code. Claude proposes the architecture, you approve or redirect.
+→ Use sub-agents to work on multiple non-conflicting parts of the app at once. One on the API, one on the data pipeline, one on the dashboard.
+→ Connect Claude to Google Cloud MCP server for live cloud docs. Fresh every 24h, no outdated training data.
+→ Install Skills for the platforms you don't know. Claude follows the recipe to deploy Cloud Run, BigQuery, Looker.
+→ Build a custom plugin for your security review. Every PR runs it automatically.
+→ Run Claude on Vertex AI. Pay per token, no API keys, data stays in your project.
+
+The shift isn't "AI writes code."
+The shift is: one operator runs the entire pipeline.
+
+This is what shipping looks like in 2026.
+
+
+---
+
+### Tuesday Post:
+
+The creator of Claude Code recorded a 30-minute workshop on how to actually use it. Here are the lessons worth stealing:
+
+→ Start with Q&A, not edits. Ask Claude questions about the codebase before you let it touch a single line.
+→ Tell Claude to plan before coding. One sentence = dramatically better output on big features.
+→ Give it a feedback loop (tests, screenshots, simulators). It iterates itself to near-perfect.
+→ CLAUDE.md is hierarchical: project, local, nested, enterprise. Configure once, leverage forever.
+→ Use dictation. Long spoken prompts beat short typed ones.
+→ 4 shortcuts that change everything:
+   Shift-Tab → auto-accept
+   # → remember this
+   ! → run bash
+   Esc → safe interrupt anytime
+→ "claude -p" is a Unix utility for the AI era. Pipe in logs, pipe out JSON. Build it into CI and incident response.
+→ Power users run multiple Claudes in parallel via tmux + git worktrees.
+→ Code never leaves your machine. No indexing. No uploads. No setup.
+
+Stop treating Claude Code like autocomplete.
+Treat it like a fast junior engineer with infinite patience.
+
+https://www.youtube.com/watch?v=AOfogJZ70OQ
+
+---
+
+### Wednesday Post:
+
+UGC collapsed from $300/video to $11, and your DTC clients are already aware of that.
+
+Tools like HeyGen and Arcads are now capable of producing hyperrealistic UGC videos in minutes at a fraction of the cost of traditional UGC.
+
+For comparison:
+Arcads Starter Plan $110/mo -> ten 90-second videos
+HeyGen Creator Plan $29/mo -> six 90-second videos
+
+Human UGC ~$500 -> ONE 90-second video
+
+That's ~45x more expensive than Arcads and ~100x more expensive than HeyGen for a slightly more realistic result that most DTC brands' customers can't even distinguish.
+
+In other words, if you still rely on human UGC, you just burn money.
+
+I posted one human-made UGC and one AI UGC down below. Can you distinguish which one is AI? Write it in the comments.
+
+
+---
+
+### Thursday Post:
+
+Trello went down 3 days ago. My client's agency didn't lose a single piece of client feedback.
+
+Here's what was happening before I built the system:
+
+Their project manager had to manually scan 30+ Trello boards every day, check the latest cards for new client comments, then forward each one to the responsible editor via Slack. That process cost the PM 45 minutes a day. Every day. And things still slipped through.
+
+The fix:
+
+Every 3 hours, an n8n workflow fetches the latest card comments across all boards, filters them for client comments, and routes them to the responsible editor via Slack. Feedback that can't be auto-assigned gets routed to the PM, so no revision slips through.
+
+Results:
+- PM saves 5.5 hours/week (~22 hours/month reclaimed)
+- Ad revision turnaround dropped from ~72h to ~12h
+- Most importantly: client churn went down
+
+In the time I've worked with this agency, I refined this thing until it survived the major Trello outage 3 days ago. Every comment that piled up during the downtime was routed to the right editor automatically once Trello came back online.
+
+The lesson: automation isn't just about saving time. It's about building systems that hold together when the tools you depend on don't.
+
+What's the single point of failure in your agency's client success workflow right now?
+
+
+---
+
+### Friday Post:
+
+Meta just made targeting obsolete. Your agency now needs 10x more creative to perform.
+
+Two days ago I wrote about UGC costs collapsing 45x. This is the other half of the same story.
+
+Meta's Andromeda rollout from late 2025 replaced audience-based targeting with creative-based targeting. In plain terms: your ad creative IS your targeting now. The algorithm reads what's in your ad: product, style, mood, copy. Then decides who sees it.
+
+Two things changed overnight:
+- Advantage+ campaigns now need 10–15 distinct creative concepts to perform
+- A single ad concept burns out in 2–3 weeks, down from 6+ weeks pre-Andromeda
+
+Translation: agencies need 5–10x the creative throughput to keep the same campaigns running. The old workflow of "ship 2-3 ads and let them run for a month" is dead.
+
+Two paths from here:
+- Hire 3x more creators and editors → slower, more expensive, can't keep up
+- Automate the production line → AI UGC, ops automation, AI variants at scale
+
+Per Wall Street Journal reporting, Meta is targeting fully AI-driven ad creation: image, video, copy, targeting and budget by the end of 2026. Zuckerberg called it "a redefinition of the category of advertising."
+
+In short: the agencies still producing ads the way they did in 2024 won't exist in 2027.
+
+Where's your current bottleneck?
+
+
+---
+
+### Saturday Post:
+
+A single markdown file just hit 151,000 stars on GitHub.
+
+It's a CLAUDE.md, derived from Andrej Karpathy's observations on where LLMs fail at coding.
+
+The whole thing is based on four principles:
+1. Think Before Coding → state assumptions, don't guess
+2. Simplicity First → minimum code, no speculative abstractions
+3. Surgical Changes → touch only what you must
+4. Goal-Driven Execution → define success criteria, loop until verified
+
+According to the SOTAAZ blog, AI coding accuracy jumped from 65% to 94% after implementing these rules.
+
+The signal: developers don't need a better model. They need better guardrails.
+
+Blog: sotaaz.com/post/karpathy-claude-md-en
+Repo: multica-ai/andrej-karpathy-skills
+
+
+---
+
+### Sunday Post:
+
+Airtable just sent you a $2,400/year invoice for 10 seats. This open-source alternative is better and costs $0.
+
+The tool is called Teable, and Airtable loses in nearly every category against it despite being free.
+
+Teable:
+- no row limits
+- high performance
+- you own the data (GDPR friendly)
+- costs $0 (self-hosted, paid cloud version available)
+- fewer integrations than Airtable
+- any SQL tool can connect directly
+- set your own API rate limits
+- perfectly suited for automation
+
+Airtable:
+- 50k row limits (Team), 125k row limits (Business)
+- massive integrations ecosystem
+- no access to the underlying DB
+- brutal per-seat pricing (10 seats = $2,400/yr Team, $4,500/yr Business)
+- caps API at 5 requests/second on EVERY plan
+
+In short: if you want fancy UI integrations and a high invoice, go with Airtable. If you want data ownership, performance, and scalability, go with Teable.
+
+I run Teable as the data layer for my AI agents and automations. Scraping 5,000+ prospects and telling Claude Code to dump them into a Teable base takes 2 minutes.
+
+The same job in Airtable hits the 5 req/sec wall → ~17 minutes minimum. Now multiply that by every batch operation your automations run daily.
+
+
+
+
+API = the live backend that handles user requests in real time. User submits the feedback form → API validates it →
+  writes it to the operational database (Firestore). Request in, response out, milliseconds.
+
+  Data pipeline = the batch job that moves raw data from the operational database into the analytical warehouse
+  (BigQuery). Runs on a schedule, transforms records, lands them where you can run SQL analytics on them. Not
+  user-facing.
+
+  Dashboard = Looker reads from BigQuery and shows charts to the PM.
+
+
+
+
+
